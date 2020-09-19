@@ -45,7 +45,7 @@ Type = "consul"
   MaxCmdValueLen = 256
   RemoveCmd = ""
   RemoveCmdArgs = ""
-  ProfilesDir = ""
+  ProfilesDir = "./res"
 
 [Logging]
 EnableRemote = false
@@ -56,17 +56,17 @@ LogLevel = "INFO"
 
 # Pre-define Devices
 [[DeviceList]]
-  Name = "SimulationServer"
+  Name = "NodeOPCUA"
   Profile = "OPCUA-Server"
   Description = "OPCUA device is created for test purpose"
   Labels = [ "test" ]
   [DeviceList.Protocols]
       [DeviceList.Protocols.opcua]
-          Endpoint = "opc.tcp://Burning-Laptop:53530/OPCUA/SimulationServer"
+          Endpoint = "opc.tcp://192.168.3.41:51215/MQTT-OPCUA"
 
 # Driver configs
 [Driver]
-  DeviceName = "SimulationServer"   # Name of Devcice exited
+  DeviceName = "NodeOPCUA"   # Name of Devcice exited
   Policy = "None"                   # Security policy: None, Basic128Rsa15, Basic256, Basic256Sha256. Default: auto
   Mode = "None"                     # Security mode: None, Sign, SignAndEncrypt. Default: auto
   CertFile = ""                     # Path to cert.pem. Required for security mode/policy != None
